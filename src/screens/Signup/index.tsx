@@ -8,12 +8,16 @@ import {SpaceDown} from '../../components/SpaceDown';
 import {Title} from '../../components/Title';
 import {colors} from '../../themes';
 
-export const Login = () => {
+export const Signup = () => {
   return (
     <View style={styles.container}>
       <Logo />
 
-      <Title text="Entre em sua conta" />
+      <Title text="Crie sua conta" />
+
+      <SpaceDown />
+
+      <Input placeholder="Nome" />
 
       <SpaceDown />
 
@@ -25,11 +29,11 @@ export const Login = () => {
 
       <SpaceDown value={40} />
 
-      <Button text="Entrar" />
+      <Button text="Enviar" />
 
       <SpaceDown />
 
-      <Redirect to="Criar nova conta" />
+      <Redirect to="Entre em sua conta" />
     </View>
   );
 };

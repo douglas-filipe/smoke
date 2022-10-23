@@ -3,6 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Home} from '../screens/Home';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Login} from '../screens/Login';
+import {Signup} from '../screens/Signup';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,7 +24,7 @@ export const AppRoutes = () => {
       }}>
       <Tab.Screen
         name="Home"
-        component={Login}
+        component={Signup}
         options={{
           tabBarIcon: ({color}) => <Icon name="home" size={24} color={color} />,
         }}
