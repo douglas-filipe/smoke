@@ -5,9 +5,17 @@ import {colors} from '../../themes';
 
 interface InputProps {
   placeholder: string;
+  setText?: (text: string) => void;
+  text?: string;
+  isPass?: boolean;
 }
 
-export const Input = ({placeholder}: InputProps) => {
+export const Input = ({
+  placeholder,
+  text,
+  setText,
+  isPass = false,
+}: InputProps) => {
   return (
     <TextInput
       underlineColor={colors.primary}
@@ -15,6 +23,9 @@ export const Input = ({placeholder}: InputProps) => {
       placeholder={placeholder}
       style={styles.container}
       mode="flat"
+      onChangeText={setText}
+      value={text}
+      secureTextEntry={isPass}
     />
   );
 };

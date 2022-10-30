@@ -4,10 +4,15 @@ import {colors} from '../../themes';
 
 interface RedirectProps {
   to: string;
+  onPress: () => void;
 }
 
-export const Redirect = ({to}: RedirectProps) => {
-  return <Text style={sytles.container}>{to}</Text>;
+export const Redirect = ({to, onPress}: RedirectProps) => {
+  return (
+    <Text onPress={onPress} style={sytles.container}>
+      {to}
+    </Text>
+  );
 };
 
 const sytles = StyleSheet.create({

@@ -1,20 +1,23 @@
 import React from 'react';
 import {StyleSheet, Text} from 'react-native';
-import * as Paper from 'react-native-paper';
+import {Button as Btn} from 'react-native-paper';
 import {colors} from '../../themes';
 
 interface ButtonProps {
   text: string;
+  onPress: () => void;
+  disable?: boolean;
 }
 
-export const Button = ({text}: ButtonProps) => {
+export const Button = ({text, onPress, disable = false}: ButtonProps) => {
   return (
-    <Paper.Button
+    <Btn
+      disabled={disable}
       style={styles.container}
       mode="contained"
-      onPress={() => console.debug.toString()}>
+      onPress={onPress}>
       <Text>{text}</Text>
-    </Paper.Button>
+    </Btn>
   );
 };
 
