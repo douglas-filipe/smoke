@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {
   ActivityIndicator,
   FlatList,
+  RefreshControl,
   SafeAreaView,
   StyleSheet,
 } from 'react-native';
@@ -18,6 +19,7 @@ interface IDecoded {
 }
 
 export const History = ({navigation}: any) => {
+  const [refreshing, setRefreshing] = useState(true);
   const {token} = useAuth();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -26,8 +28,10 @@ export const History = ({navigation}: any) => {
     setLoading(true);
     const decoded: IDecoded = await jwt_decode(token);
     const response = await api.get(`/status/${decoded.id}`);
+    console.log(decoded.id);
     setData(response.data);
     setLoading(false);
+    setRefreshing(false);
   };
 
   useEffect(() => {
@@ -47,6 +51,12 @@ export const History = ({navigation}: any) => {
             <>
               <Title text="Histórico:" />
               <FlatList
+                refreshControl={
+                  <RefreshControl
+                    refreshing={refreshing}
+                    onRefresh={reqStatus}
+                  />
+                }
                 contentContainerStyle={styles.flatList}
                 data={data}
                 renderItem={({item}: any) => (

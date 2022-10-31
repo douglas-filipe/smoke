@@ -15,10 +15,15 @@ import Toast from 'react-native-toast-message';
 import {ErrorText} from '../../components/ErrorText';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useAuth} from '../../contexts/Auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const Profile = ({navigation}: any) => {
   const [loading, setLoading] = useState(false);
-  const {loginRedirect} = useAuth();
+  const {loginRedirect, setToken} = useAuth();
+  const logout = async () => {
+    setToken('');
+    await AsyncStorage.clear();
+  };
 
   const schema = yup.object({
     email: yup.string().email('Insira um email').required('Campo obrigatório'),
@@ -97,16 +102,15 @@ export const Profile = ({navigation}: any) => {
 
       <Button
         disable={!isValid || loading}
-        text="Entrar"
-        onPress={handleSubmit(onSubmit)}
+        text="Editar"
+        onPress={() => console.log('')}
       />
+
+      <SpaceDown value={20} />
+
+      <Button text="Sair" onPress={logout} />
 
       <SpaceDown />
-
-      <Redirect
-        to="Criar nova conta"
-        onPress={() => navigation.navigate('Signup')}
-      />
     </KeyboardAwareScrollView>
   );
 };

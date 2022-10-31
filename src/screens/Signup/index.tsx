@@ -45,13 +45,15 @@ export const Signup = ({navigation}: any) => {
         email: data.email,
         password: data.password,
         name: data.name,
+        telephone: '92995171372',
       });
       console.log(response.data);
       return Toast.show({
         type: 'success',
         text1: 'Faça o login',
       });
-    } catch (e) {
+    } catch (e: any) {
+      console.log(e.message);
       return Toast.show({
         type: 'error',
         text1: 'Email já existe',

@@ -7,6 +7,7 @@ interface IAuthProviderData {
   logout?: () => void;
   loginRedirect: (value: string) => void;
   loading: boolean;
+  setToken: (value: string) => void;
 }
 
 export interface IContextProp {
@@ -37,7 +38,7 @@ export const AuthProvider = ({children}: IContextProp) => {
 
   return (
     <AuthContext.Provider
-      value={{signed: !!token, token, loading, loginRedirect}}>
+      value={{signed: !!token, token, loading, loginRedirect, setToken}}>
       {children}
     </AuthContext.Provider>
   );
