@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "576700110097",
+    "project_id": "smoke-4cbc8",
+    "storage_bucket": "smoke-4cbc8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:576700110097:android:08dcdf4ca275f1ba6168b0",
+        "android_client_info": {
+          "package_name": "com.smoke"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "576700110097-hjdr8ubf3v0rfq45kflnel5spb25rj5l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3hef1QCbHMosP4m-BkKe2FKYNI0g0hKw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "576700110097-hjdr8ubf3v0rfq45kflnel5spb25rj5l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

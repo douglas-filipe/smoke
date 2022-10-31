@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
     color: '#171219',
     fontWeight: '600',
     fontSize: 20,
-    marginTop: 20,
+    margin: 20,
+    alignSelf: 'center',
   },
 });

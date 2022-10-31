@@ -2,10 +2,12 @@ import React, {useRef} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Home} from '../screens/Home';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {Signup} from '../screens/Signup';
 import {Animated, Dimensions, StyleSheet} from 'react-native';
 import {colors} from '../themes';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {History} from '../screens/History';
+import {NotificationDetails} from '../screens/NotificationDetails';
+import {Profile} from '../screens/Profile';
 
 const Tab = createBottomTabNavigator();
 
@@ -57,7 +59,7 @@ const TabButton = () => {
 
         <Tab.Screen
           name="Histórico"
-          component={Home}
+          component={History}
           options={{
             tabBarIcon: ({color}) => (
               <Icon name="clipboard-list-outline" size={24} color={color} />
@@ -74,8 +76,8 @@ const TabButton = () => {
         />
 
         <Tab.Screen
-          name="Profile"
-          component={Home}
+          name="Perfil"
+          component={Profile}
           options={{
             tabBarIcon: ({color}) => (
               <Icon name="account-circle-outline" size={24} color={color} />
@@ -101,9 +103,21 @@ const TabButton = () => {
 export const AppRoutes = () => {
   return (
     <Stack.Navigator
-      screenOptions={{animation: 'fade_from_bottom', headerShown: false}}>
-      <Stack.Screen name="HomeTabs" component={TabButton} />
-      <Stack.Screen name="Teste" component={Signup} />
+      screenOptions={{
+        animation: 'fade_from_bottom',
+        headerBackTitleVisible: false,
+        title: '',
+        headerShadowVisible: false,
+      }}>
+      <Stack.Screen
+        options={{headerShown: false}}
+        name="HomeTabs"
+        component={TabButton}
+      />
+      <Stack.Screen
+        name="NotificationDetails"
+        component={NotificationDetails}
+      />
     </Stack.Navigator>
   );
 };

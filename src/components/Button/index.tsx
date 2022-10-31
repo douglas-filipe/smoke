@@ -13,10 +13,10 @@ export const Button = ({text, onPress, disable = false}: ButtonProps) => {
   return (
     <Btn
       disabled={disable}
-      style={styles.container}
+      style={[styles.container, disable && styles.disable]}
       mode="contained"
       onPress={onPress}>
-      <Text>{text}</Text>
+      <Text style={styles.text}>{text}</Text>
     </Btn>
   );
 };
@@ -26,5 +26,13 @@ const styles = StyleSheet.create({
     backgroundColor: colors.primary,
     width: '70%',
     borderRadius: 5,
+  },
+
+  text: {
+    color: 'white',
+  },
+
+  disable: {
+    opacity: 0.5,
   },
 });

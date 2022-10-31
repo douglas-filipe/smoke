@@ -16,7 +16,7 @@ import {ErrorText} from '../../components/ErrorText';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useAuth} from '../../contexts/Auth';
 
-export const Login = ({navigation}: any) => {
+export const Profile = ({navigation}: any) => {
   const [loading, setLoading] = useState(false);
   const {loginRedirect} = useAuth();
 
@@ -48,10 +48,9 @@ export const Login = ({navigation}: any) => {
       console.log(response.data);
       loginRedirect(response.data.token);
     } catch (e) {
-      console.log(e);
       return Toast.show({
         type: 'error',
-        text1: 'Email ou senha incorretos',
+        text1: 'Email já existe',
       });
     } finally {
       setLoading(false);
@@ -64,9 +63,7 @@ export const Login = ({navigation}: any) => {
       resetScrollToCoords={{x: 0, y: 0}}
       contentContainerStyle={styles.container}
       scrollEnabled={false}>
-      <Logo marginTop={20} />
-
-      <Title text="Entre em sua conta" />
+      <Title text="Edite sua conta" />
 
       <SpaceDown />
 

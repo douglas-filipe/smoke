@@ -67,7 +67,7 @@ export const Signup = ({navigation}: any) => {
       resetScrollToCoords={{x: 0, y: 0}}
       contentContainerStyle={styles.container}
       scrollEnabled={true}>
-      <Logo />
+      <Logo marginTop={0} />
 
       <Title text="Crie sua conta" />
 

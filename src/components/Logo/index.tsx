@@ -1,13 +1,11 @@
 import React from 'react';
-import {Image, StyleSheet} from 'react-native';
 import Logotipo from '../../assets/logo.png';
+import {Image} from 'react-native';
 
-export const Logo = () => {
-  return <Image style={styles.container} source={Logotipo} />;
+interface LogoProps {
+  marginTop?: number;
+}
+
+export const Logo = ({marginTop = 20}: LogoProps) => {
+  return <Image style={{marginTop}} source={Logotipo} />;
 };
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 20,
-  },
-});
